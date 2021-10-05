@@ -1,7 +1,7 @@
 {
   "name": "small-date",
   "version": "1.0.0",
-  "description": "Tiny (0.8kb), localised date formatting library",
+  "description": "Tiny (0.8kb) date formatting library with built-in i18n",
   "author": "Robin Weser <contact@weser.io>",
   "license": "MIT",
   "homepage": "https://github.com/robinweser/small-date",
