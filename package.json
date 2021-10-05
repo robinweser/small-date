@@ -1,0 +1,47 @@
+{
+  "name": "small-date",
+  "version": "1.0.0",
+  "description": "Tiny (0.8kb), localised date formatting library",
+  "author": "Robin Weser <contact@weser.io>",
+  "license": "MIT",
+  "homepage": "https://github.com/robinweser/small-date",
+  "repository": "https://github.com/robinweser/small-date.git",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "lib/**",
+    "es/**"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf lib es coverage",
+    "build": "yarn build:es && yarn build:lib",
+    "build:es": "babel src --out-dir es --ignore \"src/__tests__\"",
+    "build:lib": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --ignore \"src/__tests__\"",
+    "release": "yarn clean && yarn test && yarn build && npm publish",
+    "test": "cross-env BABEL_ENV=commonjs jest",
+    "coverage": "yarn test --coverage"
+  },
+  "keywords": [
+    "date",
+    "formatting",
+    "date-fns",
+    "datetime",
+    "format"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "cross-env": "^7.0.3",
+    "jest": "^27.2.4",
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2"
+  }
+}
