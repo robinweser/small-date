@@ -1,4 +1,4 @@
-# small-color
+# small-date
 
 A tiny (0.8kb) date formatting library with built-in i18n support.<br>
 
@@ -112,6 +112,6 @@ format(new Date(), 'DDD dd MMMM yyyy, hh:mm a', {
 
 ## License
 
-small-color is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
+small-date is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@robinweser](http://weser.io) and all the great contributors.
