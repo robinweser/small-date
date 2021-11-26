@@ -18,19 +18,23 @@ describe('Formatting dates', () => {
     expect(
       format(new Date('03/03/2021 11:45:21'), 'dd-MM-yyyy hh:mm:ss')
     ).toEqual('03-03-2021 11:45:21')
-    expect(format(new Date('03/03/2021 11:05:21'), 'dd-MM-yyyy h:m:s')).toEqual(
-      '03-03-2021 11:5:21'
+    expect(format(new Date('03/03/2021 11:05:05'), 'dd-MM-yyyy h:m:s')).toEqual(
+      '03-03-2021 11:5:5'
     )
     expect(
       format(new Date(2021, 3, 3, 11, 45, 21, 23), 'dd-MM-yyyy hh:mm:ss.SSS')
     ).toEqual('03-04-2021 11:45:21.023')
+  })
+  it('should correctly format special cases', () => {
+    expect(format(new Date(2020, 3, 3, 9, 9, 9), 'hh:mm:ss')).toEqual(
+      '09:09:09'
+    )
   })
   it('should correctly keep non-pattern text', () => {
     expect(
       format(new Date('03/03/2021'), '"Today is" MMMM "the" dd. "in year" y')
     ).toEqual('Today is March the 03. in year 2021')
   })
-
   it('should correctly apply the locale', () => {
     expect(format(new Date('03/03/2021'), 'DDD dd MMMM yyyy')).toEqual(
       'Wednesday 03 March 2021'
@@ -38,5 +42,8 @@ describe('Formatting dates', () => {
     expect(
       format(new Date('03/03/2021'), 'DDD dd MMMM yyyy', { locale: 'sv-SE' })
     ).toEqual('onsdag 03 mars 2021')
+    expect(
+      format(new Date(2021, 3, 3, 9, 9, 9), 'hh:mm:ss a', { locale: 'sv-SE' })
+    ).toEqual('09:09:09 fm')
   })
 })
