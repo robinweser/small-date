@@ -14,6 +14,7 @@ describe('Formatting dates', () => {
     expect(format(new Date('03/03/2021 11:45:21'), 'hh:mm:ss a')).toEqual(
       '11:45:21 am'
     )
+    expect(format(new Date('03/03/2021 11:45:21 PM'), 'hh:mm')).toEqual('11:45')
     expect(format(new Date('03/03/2021 11:45:21 PM'), 'HH:mm')).toEqual('23:45')
     expect(
       format(new Date('03/03/2021 11:45:21'), 'dd-MM-yyyy hh:mm:ss')
