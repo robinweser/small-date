@@ -32,8 +32,8 @@ The libraries exports a single function that accepts the following parameters:
 | Parameter | Type      | Description                                               |
 | --------- | --------- | --------------------------------------------------------- |
 | Date      | `Date`    | The date that is formatted                                |
-|  Pattern  |  `string` | The pattern in which the date should be formatted         |
-|  Config   | `Object`  | A config option that accepts an `locale` and a `timeZone` |
+| Pattern  | `string`   | The pattern in which the date should be formatted         |
+| Config   | `Object`   | A config option that accepts a `locale` and a `timeZone`  |
 
 ```javascript
 import { format } from 'small-date'
