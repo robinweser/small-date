@@ -11,6 +11,10 @@ const optionNames = {
   Z: 'timeZoneName',
   P: 'dayPeriod',
   a: 'hour12',
+  h: 'hour',
+  H: 'hour',
+  m: 'minute',
+  s: 'second',
 }
 
 const values = {
@@ -23,32 +27,17 @@ const values = {
   Z: ['short', 'long'],
   P: ['narrow', 'short', 'long'],
   a: [true],
+  h: ["numeric", "2-digit"],
+  H: ["numeric", "2-digit"],
+  m: ["numeric", "2-digit"],
+  s: ["numeric", "2-digit"],
 }
 
-const time = {
-  h: 'getHours',
-  H: 'getHours',
-  m: 'getMinutes',
-  s: 'getSeconds',
-}
-
-function pad(value, length) {
-  if (length === 2 && value / 10 < 1) {
-    return '0' + value
-  }
-
-  return value
+function padIf(condition, value, length) {
+  return condition && length === 2 && value / 10 < 1 ? '0' + value : value
 }
 
 function formatType(date, type, length, { locale, timeZone } = {}) {
-  // special treatment for time as its handled in a weird way
-  const timeGetter = time[type]
-
-  if (timeGetter) {
-    const timeValue = date[timeGetter]()
-    return pad(type === 'h' ? timeValue % 12 : timeValue, length)
-  }
-
   const option = optionNames[type]
   const value = values[type][length - 1]
 
@@ -74,7 +63,14 @@ function formatType(date, type, length, { locale, timeZone } = {}) {
     return Intl.DateTimeFormat(locale, options).formatToParts(date).pop().value
   }
 
-  return Intl.DateTimeFormat(locale, options).format(date)
+  if (type === 'H' || type === 'h') {
+    return Intl.DateTimeFormat('en-GB', {
+      ...options,
+      hourCycle: type === "H" ? "h23" : "h11"
+    }).format(date).toLocaleLowerCase().replace(" am", "").replace(" pm", "")
+  }
+
+  return padIf(['m', 's'].includes(type) && value === '2-digit', Intl.DateTimeFormat(locale, options).format(date), 2)
 }
 
 export default function format(date, pattern, config) {
