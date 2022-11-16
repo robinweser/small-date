@@ -48,12 +48,22 @@ describe('Formatting dates', () => {
     ).toEqual('09:09:09 fm')
   })
   it('should support both HH and hh', () => {
-    expect(format(new Date('2022-11-16T15:03:00.000Z'), 'HH', {timeZone: 'Europe/Stockholm'})).toEqual('16')
-    expect(format(new Date('2022-11-16T15:03:00.000Z'), 'hh', {timeZone: 'Europe/Stockholm'})).toEqual('04')
+    expect(
+      format(new Date('2022-11-16T15:03:00.000Z'), 'HH', {timeZone: 'Europe/Stockholm'})
+    ).toEqual('16')
+    expect(
+      format(new Date('2022-11-16T15:03:00.000Z'), 'hh', {timeZone: 'Europe/Stockholm'})
+    ).toEqual('04')
   })
   it('should care about timezone', () => {
-    expect(format(new Date('2022-11-16T22:20:00.000Z'), 'yyyy-MM-dd HH:mm', {timeZone: 'Europe/Stockholm'})).toEqual('2022-11-16 23:20')
-    expect(format(new Date('2022-11-16T22:20:00.000Z'), 'yyyy-MM-dd HH:mm', {timeZone: 'Asia/Tbilisi'})).toEqual('2022-11-17 02:20')
-    expect(format(new Date('2022-11-16T22:20:00.000Z'), 'yyyy-MM-dd HH:mm', {timeZone: 'America/St_Johns'})).toEqual('2022-11-16 18:50')
+    expect(
+      format(new Date('2022-11-16T22:20:00.000Z'), 'yyyy-MM-dd HH:mm', {timeZone: 'Europe/Stockholm'})
+    ).toEqual('2022-11-16 23:20')
+    expect(
+      format(new Date('2022-11-16T22:20:00.000Z'), 'yyyy-MM-dd HH:mm', {timeZone: 'Asia/Tbilisi'})
+    ).toEqual('2022-11-17 02:20')
+    expect(
+      format(new Date('2022-11-16T22:20:00.000Z'), 'yyyy-MM-dd HH:mm', {timeZone: 'America/St_Johns'})
+    ).toEqual('2022-11-16 18:50')
   })
 })
