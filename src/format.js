@@ -20,7 +20,7 @@ const optionNames = {
 const values = {
   y: ['numeric', '2-digit', undefined, 'numeric'],
   M: ['narrow', '2-digit', 'short', 'long'],
-  d: [undefined, '2-digit'],
+  d: ['numeric', '2-digit'],
   D: ['narrow', 'short', 'long'],
   S: [1, 2, 3],
   G: ['narrow', 'short', 'long'],

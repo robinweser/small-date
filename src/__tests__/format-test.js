@@ -9,6 +9,7 @@ describe('Formatting dates', () => {
     expect(format(new Date('03/03/2021'), 'DDD dd-MM-yyyy')).toEqual(
       'Wednesday 03-03-2021'
     )
+    expect(format(new Date('03/03/2021'), 'MMMM d')).toEqual('March 3')
     expect(format(new Date('03/03/2021'), 'dd-0MM-yyyy')).toEqual('03-003-2021')
     expect(format(new Date('03/03/2021'), 'dd-MMM-yyyy')).toEqual('03-Mar-2021')
     expect(format(new Date('03/03/2021 11:45:21'), 'hh:mm:ss a')).toEqual(
