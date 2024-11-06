@@ -1,6 +1,8 @@
 # small-date
 
-A tiny (0.8kb) date formatting library with built-in i18n support.<br>
+A tiny (0.8kb) date formatting library with built-in i18n support.
+
+<img alt="npm version" src="https://badge.fury.io/js/small-date.svg"> <img alt="npm downloads" src="https://img.shields.io/npm/dm/small-date.svg"> <a href="https://bundlephobia.com/result?p=small-date@latest"><img alt="Bundlephobia" src="https://img.shields.io/bundlephobia/minzip/small-date.svg"></a>
 
 ## Why?
 
