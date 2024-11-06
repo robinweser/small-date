@@ -1,6 +1,6 @@
 {
   "name": "small-date",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Tiny (0.8kb) date formatting library with built-in i18n",
   "author": "Robin Weser <contact@weser.io>",
   "license": "MIT",
@@ -8,7 +8,9 @@
   "repository": "https://github.com/robinweser/small-date.git",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "types": "index.d.ts",
   "files": [
+    "index.d.ts",
     "lib/**",
     "es/**"
   ],

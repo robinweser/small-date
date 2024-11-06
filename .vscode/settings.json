@@ -17,8 +17,8 @@
     "**/*.sw?": true,
     "**/*.vi": true,
     "**/node_modules": true,
-    // "**/lib": true,
-    // "**/es ": true,
-    "**/coverage": true
+    "**/coverage": true,
+    "**/lib": true,
+    "**/es ": true
   }
 }
